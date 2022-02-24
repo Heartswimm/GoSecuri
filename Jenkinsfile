@@ -32,9 +32,9 @@ pipeline {
           unstash 'generatedFiles'
           unstash 'ressourceFiles'
         }
-        sh 'cp html/GoSecuriApp/src/main/java/com/epsi/gosecuri/generatedFiles/.htpasswd  /usr/share/nginx/html/'
-        sh 'cp html/GoSecuriApp/src/main/java/com/epsi/gosecuri/generatedFiles/*  /usr/share/nginx/html/'
-        sh 'cp -r html/GoSecuriApp/src/main/java/com/epsi/gosecuri/ressourceFiles/ /usr/share/nginx/html/'
+        sh 'cp html/GoSecuriApp/src/main/java/com/epsi/gosecuri/generatedFiles/.htpasswd  /var/www/html/'
+        sh 'cp html/GoSecuriApp/src/main/java/com/epsi/gosecuri/generatedFiles/*  /var/www/html/'
+        sh 'cp -r html/GoSecuriApp/src/main/java/com/epsi/gosecuri/ressourceFiles/ /var/www/html/'
       }
     }
 
