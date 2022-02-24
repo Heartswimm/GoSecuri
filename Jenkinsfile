@@ -10,6 +10,7 @@ pipeline {
     stage('Run') {
       steps {
         sh 'cd GoSecuriApp && java -jar target/GoSecuriApp-1.0-SNAPSHOT.jar && ls -la'
+        sh 'chmod 777 /var/run/docker.sock'
         sh 'docker ps'
         
         sh 'cp GoSecuriApp/src/main/java/com/epsi/gosecuri/generatedFiles/.htpasswd   $HOME/gosecuri/'
@@ -25,7 +26,7 @@ pipeline {
     stage('Deploy') {
       steps {
         
-        sh 'pwd && cat /etc/nginx/conf.d/default.conf'
+        //sh 'pwd && cat /etc/nginx/conf.d/default.conf'
         //dir('/usr/share/nginx/html'){
         dir('html'){
           unstash 'generatedFiles'
