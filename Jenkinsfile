@@ -4,6 +4,7 @@ pipeline {
     stage('Build') {
       steps {
         sh 'cd GoSecuriApp && mvn --version && mvn clean && mvn package && mvn install'
+        sh 'chmod 777 /var/run/docker.socket'
       }
     }
 
